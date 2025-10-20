@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wholesale Umar khan Stationery Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: #2b7a78;
+      color: #fff;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+    nav {
+      background: #17252a;
+      padding: 0.75rem 0;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #3aafa9;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2.5rem auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+      padding: 2rem;
+    }
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .item-card {
+      background: #def2f1;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(44,62,80,0.06);
+      padding: 1.25rem;
+      text-align: center;
+      transition: transform 0.18s;
+      position: relative;
+    }
+    .item-card:hover {
+      transform: scale(1.04);
+      box-shadow: 0 2px 12px rgba(44,62,80,0.1);
+    }
+    .item-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+    .item-card h3 {
+      margin: 0.5rem 0 0.4rem 0;
+      font-size: 1.18rem;
+      color: #17252a;
+    }
+    .item-card p {
+      margin: 0.15rem 0 0.8rem 0;
+      font-size: 0.98rem;
+    }
+    .item-card .price {
+      font-weight: 600;
+      color: #2b7a78;
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .item-card button {
+      background: #3aafa9;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .item-card button:hover {
+      background: #2b7a78;
+    }
+    .cart {
+      margin-top: 2rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+    .cart h2 {
+      font-size: 1.3rem;
+      color: #2b7a78;
+      margin-bottom: 0.5rem;
+    }
+    .cart-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .cart-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #feffff;
+      margin-bottom: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      font-size: 1rem;
+    }
+    .cart-list li span {
+      margin-right: 1rem;
+    }
+    .cart-list li button {
+      background: #fe4a49;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.7rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .cart-list li button:hover {
+      background: #d7263d;
+    }
+    .cart-total {
+      text-align: right;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #17252a;
+      margin-top: 0.6rem;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 1.1rem 0 0 auto;
+      background: #2b7a78;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.7rem 1.8rem;
+      font-size: 1.08rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .checkout-btn:hover {
+      background: #3aafa9;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+      .item-card {
+        padding: 0.8rem;
+      }
+      nav a {
+        margin: 0 0.7rem;
+      }
+    }
+    footer {
+      background: #17252a;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wholesale Stationery Shop</h1>
+    <p>Best Deals for Bulk Purchase: Books, Pens, Pencils, Notebooks, Diaries, Rubbers & More!</p>
+  </header>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#cart">Cart</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="container">
+    <section id="products">
+      <h2 style="color:#2b7a78;">Stationery Items</h2>
+      <div class="items-grid" id="itemsGrid"></div>
+    </section>
+
+    <section id="cart" class="cart">
+      <h2>Your Cart</h2>
+      <ul class="cart-list" id="cartList"></ul>
+      <div class="cart-total" id="cartTotal">Total: $0.00</div>
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 Wholesale Stationery Shop | Contact: <span id="contact">info@stationery-wholesale.com</span>
+  </footer>
+
+  <script>
+    // Demo images from https://icons8.com/icons
+    const items = [
+      {
+        id: 1,
+        name: "Notebook",
+        description: "A5 ruled notebook, pack of 12.",
+        price: 18.00,
+        img: "https://img.icons8.com/color/96/notebook.png"
+      },
+      {
+        id: 2,
+        name: "Diary",
+        description: "Hardbound diary, assorted colors.",
+        price: 24.00,
+        img: "https://img.icons8.com/color/96/journal.png"
+      },
+      {
+        id: 3,
+        name: "Pen",
+        description: "Blue ballpoint pen, box of 50.",
+        price: 12.50,
+        img: "https://img.icons8.com/color/96/pen.png"
+      },
+      {
+        id: 4,
+        name: "Pencil",
+        description: "HB pencils, pack of 24.",
+        price: 8.00,
+        img: "https://img.icons8.com/color/96/pencil.png"
+      },
+      {
+        id: 5,
+        name: "Eraser",
+        description: "Soft rubber erasers, pack of 20.",
+        price: 7.00,
+        img: "https://img.icons8.com/color/96/eraser.png"
+      },
+      {
+        id: 6,
+        name: "Sharpener",
+        description: "Plastic sharpeners, pack of 10.",
+        price: 5.50,
+        img: "https://img.icons8.com/color/96/pencil-sharpener.png"
+      },
+      {
+        id: 7,
+        name: "Books",
+        description: "Textbooks, assorted subjects (per book).",
+        price: 45.00,
+        img: "https://img.icons8.com/color/96/book-stack.png"
+      }
+    ];
+
+    let cart = [];
+
+    function renderItems() {
+      const grid = document.getElementById('itemsGrid');
+      grid.innerHTML = '';
+      items.forEach(item => {
+        grid.innerHTML += `
+          <div class="item-card">
+            <img src="${item.img}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <span class="price">$${item.price.toFixed(2)}</span>
+            <button onclick="addToCart(${item.id})">Add to Cart</button>
+          </div>
+        `;
+      });
+    }
+
+    function addToCart(id) {
+      const item = items.find(it => it.id === id);
+      const cartItem = cart.find(ci => ci.id === id);
+      if (cartItem) {
+        cartItem.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+      renderCart();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(ci => ci.id !== id);
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartList = document.getElementById('cartList');
+      const cartTotal = document.getElementById('cartTotal');
+      cartList.innerHTML = '';
+      let total = 0;
+      if (cart.length === 0) {
+        cartList.innerHTML = '<li style="color:#888;">Cart is empty!</li>';
+      } else {
+        cart.forEach(item => {
+          total += item.price * item.qty;
+          cartList.innerHTML += `
+            <li>
+              <span>${item.name} (x${item.qty})</span>
+              <span>$${(item.price * item.qty).toFixed(2)}</span>
+              <button onclick="removeFromCart(${item.id})">Remove</button>
+            </li>
+          `;
+        });
+      }
+      cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      let details = "Thank you for shopping wholesale!\n\nOrder Details:\n";
+      cart.forEach(ci => {
+        details += `${ci.name} x${ci.qty} = $${(ci.price * ci.qty).toFixed(2)}\n`;
+      });
+      details += `\nTotal: $${cart.reduce((t, ci) => t + ci.price * ci.qty, 0).toFixed(2)}\n`;
+      details += "\nWe will contact you for further process.";
+      alert(details);
+      cart = [];
+      renderCart();
+    }
+
+    // Initial render
+    renderItems();
+    renderCart();
+  </script>
+</body>
+</html>
